@@ -13,7 +13,7 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 // ─── PROJECT API ────────────────────────────────────────────────
 
 export async function getProjects(): Promise<Project[]> {
-  const response = await fetch(`${API_URL}/api/projects`);
+  const response = await fetch(`${API_URL}/projects`);
   if (!response.ok) throw new Error('Failed to fetch projects');
   return response.json();
 }

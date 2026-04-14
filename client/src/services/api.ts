@@ -15,13 +15,15 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 export async function getProjects(): Promise<Project[]> {
   const response = await fetch(`${API_URL}/projects`);
   if (!response.ok) throw new Error('Failed to fetch projects');
-  return response.json();
+  const data = await response.json();
+  return data;
 }
 
 export async function getProject(id: number): Promise<ProjectWithTasks> {
   const response = await fetch(`${API_URL}/projects/${id}`);
   if (!response.ok) throw new Error('Failed to fetch project');
-  return response.json();
+  const data = await response.json();
+  return data;
 }
 
 export async function createProject(
@@ -36,7 +38,8 @@ export async function createProject(
     const error = await response.json();
     throw new Error(error.error || 'Failed to create project');
   }
-  return response.json();
+  const createdProject = await response.json();
+  return createdProject;
 }
 
 export async function updateProject(
@@ -52,7 +55,8 @@ export async function updateProject(
     const error = await response.json();
     throw new Error(error.error || 'Failed to update project');
   }
-  return response.json();
+  const updatedProject = await response.json();
+  return updatedProject;
 }
 
 export async function deleteProject(id: number): Promise<void> {

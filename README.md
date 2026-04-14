@@ -64,8 +64,8 @@ cd client
 npm run dev
 ```
 
-- Frontend: http://localhost:5173
-- Backend: http://localhost:3001
+- Frontend: https://task-forge-khaki.vercel.app/
+- Backend: https://task-forge-api.onrender.com
 
 ## API Endpoints
 
